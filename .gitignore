@@ -1,0 +1,32 @@
+# Secrets: real values live only in .env, never in git
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Node (used from Phase 7)
+node_modules/
+dist/
+
+# Downloaded source documents: fetched at setup time, never committed
+data/raw/
+data/processed/
+
+# Eval caches (raw LLM responses are regenerated, results tables are committed)
+eval/cache/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

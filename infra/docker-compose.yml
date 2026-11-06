@@ -1,0 +1,35 @@
+# Local development services for GroundTruth.
+# Phase 0 runs only Postgres with the pgvector extension available.
+# Values come from the repo root .env file (see .env.example).
+
+name: groundtruth
+
+services:
+  postgres:
+    # Pinned tag: pgvector 0.8.1 built on Postgres 16.
+    image: pgvector/pgvector:0.8.1-pg16
+    container_name: groundtruth-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-groundtruth}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-groundtruth}
+      POSTGRES_DB: ${POSTGRES_DB:-groundtruth}
+    ports:
+      # host:container. Only the host side changes between machines.
+      - "${POSTGRES_PORT:-5434}:5432"
+    volumes:
+      # Named volume so data survives container restarts.
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-groundtruth} -d ${POSTGRES_DB:-groundtruth}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    deploy:
+      resources:
+        limits:
+          # Keep Postgres small on a 6 GB laptop.
+          memory: 512M
+    restart: unless-stopped
+
+volumes:
+  pgdata:
