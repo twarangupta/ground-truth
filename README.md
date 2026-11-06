@@ -44,3 +44,7 @@ make test-integration   # tests against the real Postgres container
 ## Results
 
 NOT MEASURED. Evaluation starts in Phase 2.
+
+## License
+
+Code is released under the [MIT License](LICENSE). Source documents (RBI, SEBI, fund publications) are not part of this repository; they are downloaded at setup time and remain subject to their publishers' terms.
