@@ -1,11 +1,12 @@
-# Continuous integration: runs on every push to main and every pull request.
+# Continuous integration: runs on every push to main or dev, and on every pull request.
+# Day-to-day work happens on dev; main only changes through a reviewed PR at each phase checkpoint.
 # No secrets or paid services are needed.
 
 name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
 
 jobs:
