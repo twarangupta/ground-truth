@@ -4,7 +4,7 @@ A retrieval-augmented question-answering assistant over public Indian financial 
 
 **Status: Phase 0 of 8 (repository setup).** No AI functionality exists yet. This README only describes what is built.
 
-Everything runs on free tiers. See [docs/DECISIONS.md](docs/DECISIONS.md).
+Everything runs on free tiers; no paid services are used.
 
 ## Requirements
 
@@ -39,7 +39,6 @@ make test-integration   # tests against the real Postgres container
 | `data/` | Document manifest (Phase 1); downloaded PDFs are never committed |
 | `eval/` | Evaluation harness (Phase 2 and 5) |
 | `web/` | React frontend (Phase 7) |
-| `docs/` | Learning guide, decision records, build-in-public drafts |
 
 ## Results
 

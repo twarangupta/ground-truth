@@ -25,6 +25,9 @@ data/processed/
 # Eval caches (raw LLM responses are regenerated, results tables are committed)
 eval/cache/
 
+# Personal documentation (learning guide, build guide, drafts): kept local only
+docs/
+
 # Editors and OS
 .vscode/
 .idea/
